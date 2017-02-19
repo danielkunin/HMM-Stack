@@ -22,9 +22,9 @@ To run these applications, please download the Application folder and the Prob-s
 
 ### Probabilistic stack
 
-The MATLAB code 'construct_hmm_stack' constructs a probabilistic stack using cores listed in the summary file. To construct a probabilistic stack with your own benthic *δ<sup>18</sup>O* records, you should modify the 'recordSummary.txt' file, located in the data folder. Each line of this summary file includes three columns: the file name of the core, the age estimate of the top of the core, and the age estimate of the bottom of the core. It is enough to input rough estimates of the ages. After modifying the file, you can run the MATLAB code 'construct_hmm_stack' with the summary file as follows: 
+The MATLAB code 'construct_stack' constructs a probabilistic stack using cores listed in the summary file. To construct a probabilistic stack with your own benthic *δ<sup>18</sup>O* records, you should modify the 'recordSummary.txt' file, located in the data folder. Each line of this summary file includes three columns: the file name of the core, the age estimate of the top of the core, and the age estimate of the bottom of the core. It is enough to input rough estimates of the ages. After modifying the file, you can run the MATLAB code 'construct_hmm_stack' with the summary file as follows: 
 
-    construct_hmm_stack('recordSummary.txt')
+    construct_stack('record_summary.txt')
 
 This code generates 'newStack_iterN.txt', which is a new probabilistic stack constructed from the cores listed in 'recordSummary.txt'. It follows the same format as Prob_stack.txt. In addition to the stack file, while running, the code generates the following files: 
 
