@@ -37,7 +37,7 @@ To construct a valid probabilistic stack, at least two different *δ<sup>18</sup
 
 Note that a construction of the stack requires extensive use of high performance computing resources. Constructing the Prob-stack took about one month with 180 computing nodes as it takes over 100 hours for a high-resolution record to complete one iteration. It took about 30 minutes to construct a stack on a desktop (2.7 GHz Intel Core i% processor & 16GB memory) using the three example records as provided in 'recordSummary.txt'.
 
-### Age estimation
+<!-- ### Age estimation
 
 The MATLAB code 'get_age_estimate' finds age estimates of a benthic *δ<sup>18</sup>O* record by aligning the record with the Prob-stack. To run the code, you should provide the file name of the core and age estimates of the top and the bottom of the core as follows:
 
@@ -56,7 +56,7 @@ The code generates 'age_estimate_coreName_summary.mat' which includes the follow
 
 The MATLAB code 'analyze_lead_lag' provides the probability of one point in a record "coreNAME1" leading to another point in a record "coreNAME2". Before running this code, the age estimates of "coreNAME1" and "coreNAME2" should be estimated using 'get_age_estimate'. To run this code, you should specify two points you want to analyze using their depths as follows:
 
-    analyze_lead_lag(coreName1, depth1, coreName2, depth2)
+    analyze_lead_lag(coreName1, depth1, coreName2, depth2) -->
 
 
 ## License
