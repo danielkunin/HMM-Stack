@@ -18,7 +18,7 @@ iterMax = 10;
 
 % Initial Parameter Values
 sampleSize = 1000;
-param; % TODO: Need to intialize parameters from LR04
+param = 0; % TODO: Need to intialize parameters from LR04
 LL = zeros(1,iterMax);
 done = false;
 
@@ -34,18 +34,18 @@ while ~done
         fclose(fileID);
         
         % Forward Algorithm
-        fMatrix = forward_algorithm(data)
+        fMatrix = forward_algorithm(data, param)
         
         % Backward Sampling Algorithm
-        samples(index,:) = backward_sampling(fMatrix, sampleSize)
+        samples(index,:) = backward_sampling(fMatrix, param, sampleSize)
         
     end
 
     % Maximization Step
-    newParam = maximization_step(samples);
+    param = maximization_step(samples);
  
     % Log Likelihood
-    LL(iter) = log_likelihood(newParam, samples);
+    LL(iter) = log_likelihood(param, samples);
     
     % Check Convergence Criteria
     iter = iter + 1;
