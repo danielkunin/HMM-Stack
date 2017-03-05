@@ -18,7 +18,7 @@ iterMax = 10;
 
 % Initial Parameter Values
 sampleSize = 1000;
-param; % TODO: Need to intialize parameters from LR04
+param;
 LL = zeros(1,iterMax);
 done = false;
 
@@ -49,7 +49,7 @@ while ~done
     
     % Check Convergence Criteria
     iter = iter + 1;
-    if (iter > iterMax) || (iter~=1 && (abs(LL(iter) - LL(iter-1)) < iterTol))
+    if (iter > iterMax) || (iter~=1 && abs(LL(iter)-LL(iter-1)) < iterTol)
         done = true;
     end
 end
