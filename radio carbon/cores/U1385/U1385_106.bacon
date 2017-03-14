@@ -1,0 +1,17 @@
+## Ran on Mon Mar 13 11:03:57 2017 
+
+Cal 0 : ConstCal;
+Cal 1 : IntCal13, 0;
+Cal 2 : Marine13;
+Cal 3 : SHCal13, 0;
+
+##   id.   yr    std   depth  d.R  d.STD     t.a   t.b   cc
+Det 0 : none , 2415.5, 200, 37.437,  400,  200,  3,  4,  2;
+Det 1 : none , 8073.6, 300, 130.55,  400,  200,  3,  4,  2;
+Det 2 : none , 11998, 400, 183.36,  400,  200,  3,  4,  2;
+Det 3 : none , 15530, 500, 270.99,  400,  200,  3,  4,  2;
+Det 4 : none , 25183, 600, 471.85,  400,  200,  3,  4,  2;
+Det 5 : none , 27844, 700, 565.2,  400,  200,  3,  4,  2;
+
+##		 K   MinYr   MaxYr   th0   th0p   w.a   w.b   alpha  beta  dmin  dmax
+Bacon 0: FixT, 106,  -1000,  1e+06,  2195,  2439,  2.8,  1.2,  1.5,  0.075, 37.437, 565.2;
