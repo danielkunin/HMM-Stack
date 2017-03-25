@@ -14,7 +14,7 @@ function [samples,sites] = back_sampling(fMatrix,sampleSize,data,age_stack,rhos,
 % data: a Lx3-matrix where the first column has the depth indexes and the
 % third one has the del-O18 data
 % age_stack: a 1xT-vector of ages in stack
-% rhos: a 2x1-cell where the first one is rho_table and the second one is
+% rhos: a 3x1-cell where the first one is rho_table and the second one is
 % grid.
 % phi: a hyperparameter for controlling the length of unaligned regions.
 
@@ -30,7 +30,7 @@ samples_matrix = zeros(L,sampleSize);
 depth = data(:,1);
 rho_table = rhos{1};
 grid1 = [log(0.9220),log(1.0850)];
-grid2 = rhos{2};
+grid2 = rhos{3};
 phi = log(phi);
 
 
