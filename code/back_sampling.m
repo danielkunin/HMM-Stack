@@ -1,4 +1,4 @@
-function [samples,sites] = back_sampling(fMatrix,sampleSize,data,age_stack,rhos)
+function [samples,sites] = back_sampling(fMatrix,sampleSize,data,age_stack,rhos,phi)
 %% This function generates sample alignments by backward sampling.
 
 % L = length of data in the core
@@ -16,6 +16,7 @@ function [samples,sites] = back_sampling(fMatrix,sampleSize,data,age_stack,rhos)
 % age_stack: a 1xT-vector of ages in stack
 % rhos: a 2x1-cell where the first one is rho_table and the second one is
 % grid.
+% phi: a hyperparameter for controlling the length of unaligned regions.
 
 % Outputs:
 % samples: a 1 x sampleSize - cell consisting of samples per each entry.
@@ -30,12 +31,13 @@ depth = data(:,1);
 rho_table = rhos{1};
 grid1 = [log(0.9220),log(1.0850)];
 grid2 = rhos{2};
+phi = log(phi);
 
 
 %% Compute distribution of the last two samples:
 term = zeros(1,T*T);
 for t = 1:T
-    term((t-1)*T+1:t*T) = fMatrix(t,:,L);
+    term((t-1)*T+1:t*T) = fMatrix(t,:,L) - (1-T:0)*phi;
 end
 term = term - max(term);
 dist = exp(term)/sum(exp(term));

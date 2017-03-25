@@ -5,9 +5,10 @@ function [rhos] = rho_constructor(filename)
 % filename: a string of the name of a text file containing grids.
 
 % Outputs:
-% rhos: a 2x1-cell consisting of the following:
+% rhos: a 3x1-cell consisting of the following:
 % first element stores the transition table.
-% second element stores the grid in the table.
+% second element stores the initial distribution.
+% third element stores the grid in the table.
 
 
 mix_std1 = sqrt(0.0216);
@@ -97,6 +98,12 @@ for m = 1:3
     end
 end
 
+initial_distribution = zeros(1,length(y));
+
+for n = 1:length(y)
+    initial_distribution(n) = h(n)*density_mixture_gaussian(y(n),mix_mu1,mix_std1,mix_mu2,mix_std2,mix_p1,mix_p2);
+end
+
 
 %{
 x = [tt1,tt2(2:end),tt3(2:end)];
@@ -130,9 +137,10 @@ end
 %}
 
 
-rhos = cell(2,1);
+rhos = cell(3,1);
 rhos{1} = rho_table;
-rhos{2} = exp(x);
+rhos{2} = initial_distribution;
+rhos{3} = exp(x);
 
 end
 

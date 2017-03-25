@@ -19,6 +19,7 @@ iterMax = 10;
 % Initial Parameter Values
 rhos = rho_constructor('sedrate_dist_everbins.txt');
 sampleSize = 1000;
+phi = 0.05; % TODO: Need to fix a hyperparameter phi
 param = 0; % TODO: Need to intialize parameters from LR04
 age_stack = 0; % TODO: Need to define discretized ages from LR04
 LL = zeros(1,iterMax);
@@ -37,10 +38,10 @@ while ~done
         fclose(fileID);
         
         % Forward Algorithm
-        fMatrix = forward_algorithm(data, param, age_stack);
+        fMatrix = forward_algorithm(data, param, age_stack, phi, index);
         
         % Backward Sampling Algorithm
-        [samples(index,:),sites(index,:)] = back_sampling(fMatrix, sampleSize, data, age_stack, rhos);
+        [samples(index,:),sites(index,:)] = back_sampling(fMatrix, sampleSize, data, age_stack, rhos, phi);
         
     end
 
