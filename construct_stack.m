@@ -36,7 +36,7 @@ while ~done
         fclose(fileID);
         
         % Forward Algorithm
-        fMatrix = forward_algorithm(data, param, age_stack)
+        fMatrix = forward_algorithm(data,param,age_stack,index,rhos)
         
         % Backward Sampling Algorithm
         samples(index,:) = back_sampling(fMatrix, sampleSize, data, age_stack, rhos)
