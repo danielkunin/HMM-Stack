@@ -32,7 +32,7 @@ while ~done
         
         % load data
         fileID = fopen(files(index),'r');
-        data = fscanf(fileID,'%f %f %f')
+        data = flip(fscanf(fileID,'%f %f %f'));
         fclose(fileID);
         
         % Forward Algorithm

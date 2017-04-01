@@ -24,27 +24,36 @@ function [ fMatrix ] = forward_algorithm( data,param,age_stack,index,rhos,phi )
 T = size(age_stack,2);
 L = size(data,1);
 fMatrix = zeros(T,T,L);
-ETable = Emission_del_O18(data,param,index);
+E_del = Emission_del_O18(data,param,index); % include radiocarbon emision...?
 depth = data(:,1);
-rho_table = rhos{1};
-%grid1 = [log(0.9220),log(1.0850)];
-%grid2 = rhos{3};
+d_depth = depth(2:end) - depth(1:end-1);
+d_time = age_stack' - age_stack;
+rho_table = [zeros(3,1),rhos{1}];
+rho_dist = [0,rhos{2}];
+rho_values = rhos{3};
+grid1 = [log(0.9220),log(1.0850), inf];
 phi = log(phi);
 n = 2;
 
 %% Initial n = 2
 
-emission = ETable(1,:)' + ETable(2,:); % include radiocarbon emision...?
-transition = rho_table((age_stack - age_stack')./(depth - depth')); % rho_table...?
-fMatrix(:,:,n) = emission + transition + phi; %phi...?
+emission = E_del(1,:)' + E_del(2,:);
+sed_rate = d_time / d_depth(n - 1);
+[~,~,bin] = histcounts(sed_rate,rho_values);
+transition = log(rho_dist(bin+1));
+fMatrix(:,:,n) = emission + transition + (0:T-1)' * phi;
 n = n + 1;
 
 %% Iterative n > 2
 
-while n < L
-    emission = ETable(n,:);
-    transition = %;
-    fMatrix(:,:,n) = %;
+while n <= L
+    emission = E_del(n,:);
+    sed_rate = d_time / d_depth(n - 1);
+    [~,~,index] = histcounts(sed_rate,grid1);
+    [~,~,bin] = histcounts(sed_rate,rho_values);
+    transition = rho_table(sub2ind(size(rho_table), index + 1, bin + 1));
+    total = transition .* exp(fMatrix(:,:,n - 1));
+    fMatrix(:,:,n) =  emission + log(cumsum(total));
     n = n + 1;
 end
 
@@ -54,11 +63,6 @@ end
 
 
 %% General questions for Taehee
-% - n = 1?
-% - Everything is log-probabilities so add not multiply?
+% - Are values in Rho_table log probabilites or just probability?
+% - How to handle sum of probabilities in iterative case when taking log?
 % - Use repmat?
-% - Shouldn't the iterative case depend on F(n-1,t,t_n-1)?
-% - rho (what is the second cell) and phi?
-% - T >> L, but what if it is not?
-% - Shouldn't the data be reversed?  Align oldest => newest?
-% - Why is fMatrix (TxTxL) and not (TxL)?

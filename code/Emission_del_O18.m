@@ -28,8 +28,7 @@ sigma = param.sigma;
 
 
 %% Compute distribution of each del-O18 data:
-% ETable = log(normpdf(data(:,3),mu,sigma)); to prevent -inf from underflow:
-ETable = -(data(:,3)-mu).*(data(:,3)-mu)./(2*sigma.*sigma)-log(sigma)-log(2*pi)/2;
+ETable = -(data(:,3)-mu).^2./(2*sigma.^2)-log(sigma)-log(2*pi)/2;
 
 
 end
