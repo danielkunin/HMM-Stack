@@ -54,11 +54,11 @@ while count < sampleSize
     sum_index = sum(index1);
     samples_matrix(L,count) = rem(sum_index,T)+1;
     samples_matrix(L-1,count) = (sum_index-rem(sum_index,T))/T+1;
-    if (samples_matrix(L,count)-samples_matrix(L-1,count))/(depth(L)-depth(L-1)) <= 4 && (samples_matrix(L,count)-samples_matrix(L-1,count))/(depth(L)-depth(L-1)) >= 0.25
+    if (samples_matrix(L,count)-samples_matrix(L-1,count))/abs(depth(L)-depth(L-1)) <= 4 && (samples_matrix(L,count)-samples_matrix(L-1,count))/abs(depth(L)-depth(L-1)) >= 0.25
         det = 1;
         index = L-2;
         while det == 1 && index > 0
-            index = (age_stack > age_stack(samples_matrix(index+1,count))-4*(depth(index+1)-depth(index)) & age_stack < age_stack(samples_matrix(index+1,count))-0.25*(depth(index+1)-depth(index)));
+            index = (age_stack > age_stack(samples_matrix(index+1,count))-4*abs(depth(index+1)-depth(index)) & age_stack < age_stack(samples_matrix(index+1,count))-0.25*abs(depth(index+1)-depth(index)));
             dummy = 1:T;
             if sum(index) > 1
                 possible_t = dummy(index);
@@ -66,7 +66,7 @@ while count < sampleSize
                 if sum(isinf(term)) < length(term)
                     term = term - max(term);
                     for t = 1:length(possible_t)
-                        term(t) = exp(term(t))*rho_table(1+sum(grid1<(age_stack(samples_matrix(index+1,count))-age_stack(possible_t(t)))/(depth(index+1)-depth(index))),sum(grid2<(age_stack(samples_matrix(index+2,count))-age_stack(samples_matrix(index+1,count)))/(depth(index+2)-depth(index+1))));
+                        term(t) = exp(term(t))*rho_table(1+sum(grid1<(age_stack(samples_matrix(index+1,count))-age_stack(possible_t(t)))/abs(depth(index+1)-depth(index))),sum(grid2<(age_stack(samples_matrix(index+2,count))-age_stack(samples_matrix(index+1,count)))/abs(depth(index+2)-depth(index+1))));
                         % term(t) = exp(term(t))*rho((age_stack(samples(index+1,count))-age_stack(possible_t(t)))/(depth(index+1)-depth(index)),(age_stack(samples(index+2,count))-age_stack(samples(index+1,count)))/(depth(index+2)-depth(index+1)));
                     end
                     term = term/sum(term);
