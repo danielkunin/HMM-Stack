@@ -69,7 +69,7 @@ while n <= L
             % loop for t
             transitions = zeros(1,tn_1);
             for t = 1:tn_1
-                transitions(t) = rho_table(index(t,tn_1) + 1, bin(tn_1, tn) + 1) + fMatrix(t,tn_1,n - 1);
+                transitions(t) = rho_table(index(t,tn_1), bin(tn_1, tn)) * fMatrix(t,tn_1,n - 1);
             end
             % find max and compute sum to avoid underflow
             mTrans = max(transitions);
@@ -82,6 +82,15 @@ while n <= L
         end
     end
     
+   
+    
+    fMatrix(:,:,n - 1)
+
+    transition = rho_table(sub2ind(size(rho_table), index + 1, bin + 1));
+    total = transition .* exp(fMatrix(:,:,n - 1));
+    k = max()
+    
+    fMatrix(:,:,n) =  emission + cumsum(total,2);
     n = n + 1;
 end
 
