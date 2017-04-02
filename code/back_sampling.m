@@ -40,10 +40,7 @@ for t = 1:T
     term((t-1)*T+1:t*T) = fMatrix(t,:,L) - (1-T:0)*phi;
 end
 term = term - max(term);
-dist = exp(term)/sum(exp(term));
-for t = 2:T*T
-    dist(t) = dist(t) + dist(t-1);
-end
+dist = cumsum(exp(term)/sum(exp(term)));
 
 
 %% Sample ages for each sample:
@@ -54,39 +51,48 @@ while count < sampleSize
     sum_index = sum(index1);
     samples_matrix(L,count) = rem(sum_index,T)+1;
     samples_matrix(L-1,count) = (sum_index-rem(sum_index,T))/T+1;
-    if (samples_matrix(L,count)-samples_matrix(L-1,count))/abs(depth(L)-depth(L-1)) <= 4 && (samples_matrix(L,count)-samples_matrix(L-1,count))/abs(depth(L)-depth(L-1)) >= 0.25
+    rho = (samples_matrix(L,count)-samples_matrix(L-1,count))/abs(depth(L)-depth(L-1));
+    if rho == 0
+        rho = 0.5/abs(depth(L)-depth(L-1));
+    end
+    if (rho-4)*(rho-0.25) <= 0
         det = 1;
         index = L-2;
+        det_seed = rand(L,1);
         while det == 1 && index > 0
-            index = (age_stack > age_stack(samples_matrix(index+1,count))-4*abs(depth(index+1)-depth(index)) & age_stack < age_stack(samples_matrix(index+1,count))-0.25*abs(depth(index+1)-depth(index)));
+            index1 = (age_stack > age_stack(samples_matrix(index+1,count))-4*abs(depth(index+1)-depth(index)) & age_stack < age_stack(samples_matrix(index+1,count))-0.25*abs(depth(index+1)-depth(index))) | (age_stack == age_stack(samples_matrix(index+1,count)));
             dummy = 1:T;
-            if sum(index) > 1
-                possible_t = dummy(index);
+            if sum(index1) > 1
+                possible_t = dummy(index1);
                 term = fMatrix(possible_t,samples_matrix(index+1,count),index+1);
                 if sum(isinf(term)) < length(term)
                     term = term - max(term);
-                    for t = 1:length(possible_t)
-                        term(t) = exp(term(t))*rho_table(1+sum(grid1<(age_stack(samples_matrix(index+1,count))-age_stack(possible_t(t)))/abs(depth(index+1)-depth(index))),sum(grid2<(age_stack(samples_matrix(index+2,count))-age_stack(samples_matrix(index+1,count)))/abs(depth(index+2)-depth(index+1))));
+                    t = 1;
+                    while t < length(possible_t)
+                        term(t) = exp(term(t))*rho_table(1+sum(grid1<(age_stack(samples_matrix(index+1,count))-age_stack(possible_t(t)))/abs(depth(index+1)-depth(index))),sum(grid2<rho));
                         % term(t) = exp(term(t))*rho((age_stack(samples(index+1,count))-age_stack(possible_t(t)))/(depth(index+1)-depth(index)),(age_stack(samples(index+2,count))-age_stack(samples(index+1,count)))/(depth(index+2)-depth(index+1)));
+                        t = t + 1;
                     end
-                    term = term/sum(term);
-                    for t = 2:length(possible_t)
-                        term(t) = term(t) + term(t-1);
-                    end
-                    det_seed = rand();
-                    index2 = (det_seed > term);
+                    term(t) = exp(term(t))*rho_table(1+sum(grid1<0.5/abs(depth(index+1)-depth(index))),sum(grid2<rho));
+                    term = cumsum(term/sum(term));
+                    index2 = (det_seed(index) > term);
                     sum_index = sum(index2);
                     samples_matrix(index,count) = possible_t(sum_index+1);
                     index = index - 1;
+                    rho = (age_stack(samples_matrix(index+1,count))-age_stack(samples_matrix(index,count)))/abs(depth(index+1)-depth(index));
+                    if rho == 0
+                        rho = 0.5/abs(depth(index+1)-depth(index));
+                    end
                 else
                     det = 0;
                 end
-            elseif sum(index) == 1
-                possible_t = dummy(index);
+            elseif sum(index1) == 1
+                possible_t = dummy(index1);
                 term = fMatrix(possible_t,samples_matrix(index+1,count),index+1);
                 if isinf(term) == 0
-                    samples_matrix(index,count) = dummy(index);
+                    samples_matrix(index,count) = dummy(index1);
                     index = index - 1;
+                    rho = 0.5/abs(depth(index+1)-depth(index));
                 else
                     det = 0;
                 end
