@@ -5,12 +5,20 @@ function construct_stack(records)
 %
 %% Load Data
 
-files = textscan(records,'%s');
-stacks = cell(1,length(files));
-for i = 1:length(files)
-    stacks(i) = flip(load(strcat('data/',files(i))));
+% open record file
+fid = fopen(records, 'r');
+files = textscan(fid, '%s');
+fclose(fid);
+
+% load stack data
+stacks = cell(1,length(files{1}));
+for i = 1:length(stacks)
+    stacks{i} = flip(load(['data/',files{1}{i}]));
 end
-LR04 = flip(load('/data/982_LR04age.txt'));
+
+% load refrence data
+LR04 = flip(load('data/982_LR04age.txt'));
+
 
 %% Run the profile-HMM algorithm
 
@@ -23,7 +31,7 @@ iterMax = 10;
 
 % Initial Parameter Values from LR04
 age_stack = LR04(:,2)';
-param = 0; % TODO: Need to intialize parameters from LR04
+param = initializing_param(stacks, LR04); 
 
 % Initial Parameter Values from sedemenation rate
 rhos = rho_constructor('../data/sedrate_dist_evenbins.txt');
