@@ -34,6 +34,7 @@ age_stack = LR04(:,2)';
 param = initializing_param(stacks, LR04); 
 
 % Initial Parameter Values from sedemenation rate
+phi = 0.05; % TODO: Need to fix a hyperparameter phi
 rhos = rho_constructor('../data/sedrate_dist_evenbins.txt');
 sampleSize = 1000;
 LL = zeros(1,iterMax);
@@ -49,15 +50,15 @@ while ~done
         data = stacks(index)
         
         % Forward Algorithm
-        fMatrix = forward_algorithm(data,param,age_stack,index,rhos)
+        fMatrix = forward_algorithm( data,param,age_stack,index,rhos,phi );
         
         % Backward Sampling Algorithm
-        samples(index,:) = back_sampling(fMatrix, sampleSize, data, age_stack, rhos)
+        [samples(index,:),sites(index,:)] = back_sampling(fMatrix, sampleSize, data, age_stack, rhos, phi);
         
     end
 
     % Maximization Step
-    param = maximization_step(samples);
+    param = maximization_step(files, samples, sites, age_stack);
  
     % Log Likelihood
     LL(iter) = log_likelihood(param, samples);
