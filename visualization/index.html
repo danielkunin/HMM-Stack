@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>HMM Stack</title>
+
+<style>
+	.axis path,
+	.axis line {
+		fill: none;
+		stroke: black;
+		stroke-width: 2;
+		shape-rendering: crispEdges;
+	}
+	.axis text,
+	text.label {
+		font-family: "Helvetica Neue";
+		font-size: 11px;
+		fill: black;
+	}
+	body {
+		text-align: center;
+	}
+	svg {
+		cursor: pointer;
+	}
+</style>
+
+<body>
+	<h1>HMM Stack</h3>
+	<p></p>
+	<p>Select which stack to explore.</p>
+	<select id="stack">
+        <option value="1">GeoB1032</option>
+        <option value="2">GeoB1035</option>
+        <option value="3">GeoB1214</option>
+    </select>
+    <select id="y-value">
+        <option value="depth">depth</option>
+        <option value="delo18">delta-O-18</option>
+        <option value="age">age difference</option>
+    </select>
+    <input type="checkbox" id="confidence">
+    <p>Click on the plot to visualize the relationship between traits.</p>
+</body>
+
+<!-- Load D3 -->
+<script src="d3.min.js"></script>
+<!-- Load Data -->
+<script src="GeoB1032.js"></script>
+<script src="GeoB1035.js"></script>
+<script src="GeoB1214.js"></script>
+<!-- Our Code -->
+<script>
+
+// *************************************************************************************
+
+
+	// 1: Set up dimensions of SVG
+	var margin = {top: 30, right: 30, bottom: 60, left: 60},
+		width = 800 - margin.left - margin.right,
+		height = 500 - margin.top - margin.bottom;
+
+	// 2: Create SVG
+	var svg = d3.select("body").append("svg")
+	    .attr("width", width + margin.left + margin.right)
+	    .attr("height", height + margin.top + margin.bottom)
+	  .append("g")
+	    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+	// 3: Scales
+	var x = d3.scale.linear()
+	    .range([0, width]);
+	var y = d3.scale.linear()
+	    .range([height, 0]);
+	var color = d3.scale.category10();
+
+	// 4: Axes
+	var xAxis = d3.svg.axis()
+	    .scale(x)
+	    .orient("bottom")
+	    .ticks(6);
+	var yAxis = d3.svg.axis()
+	    .scale(y)
+	    .orient("left")
+	    .ticks(6);
+
+	// 5: Graph
+	svg.append("g")
+	  .attr("class", "x axis")
+	  .attr("transform", "translate(0," + height + ")")
+	  .call(xAxis);
+	svg.append("g")
+	  .attr("class", "y axis")
+	  .attr("transform", "translate(0,0)")
+	  .call(yAxis);
+
+	// 6: Axes Labels
+	svg.append("text")
+	  .attr("class", "label")
+	  .attr("text-anchor", "middle")
+	  .attr("transform", "translate(" + width / 2 + "," + (height + margin.bottom / 2) + ")");              
+	svg.append("text")
+	  .attr("class", "label")
+	  .attr("text-anchor", "middle")
+	  .attr("transform", "translate(" + margin.left / -2 + "," + height / 2 + ")rotate(-90)");
+
+
+	//7: Join, Update, Enter, Exit
+	var time = 300,
+		color = ['#377eb8', '#e41a1c', '#4daf4a'];
+	function update(paths, data) {
+		// 7.0: Get Traits
+		var trait_x = 'age',
+			trait_y = get_trait();
+
+		// 7.1: Update Axes Labels
+		svg.selectAll("text.label")
+		  .data([trait_x, trait_y])
+		  .text(function(d) { return d; });
+
+		// 7.2: Scale Domains
+		x.domain([d3.min(data, function(d) { return d[trait_x]; }), 
+				  d3.max(data, function(d) { return d[trait_x]; })]);
+		y.domain([d3.min(data, function(d) { return d[trait_y]; }), 
+				  d3.max(data, function(d) { return d[trait_y]; })]);
+		if (trait_y == 'age') {y.domain([-20,20])};
+
+		// 7.3: Update Axis
+		svg.select('.x.axis').transition().duration(time).call(xAxis);
+		svg.select(".y.axis").transition().duration(time).call(yAxis);
+
+		// 7.4: Define Line Function
+		var lineFunction = d3.svg.line()
+		  .x(function(d) { return x(d.x); })
+ 		  .y(function(d) { return y(d.y); })
+ 		  .interpolate("linear");
+
+		// 7.5: JOIN new data with old elements.
+		var alignment = svg.selectAll("path.stack")
+		  .data(paths);
+
+		// 7.6: UPDATE old elements present in new data.
+		alignment.transition(time)
+		  .attr("d", function(d) { return lineFunction(extract(data,d,trait_y)); });
+
+		// // 7.7: ENTER new elements present in new data.
+		alignment.enter().append("path")
+		  .attr("d", function(d) { return lineFunction(extract(data,d,trait_y)); })
+		  .attr("stroke", function(d,i) { return color[i]; })
+		  .attr("stroke-width", 2)
+		  .attr("stroke-opacity", 10^-6)
+		  .attr("fill", "none")
+		  .attr("class", "stack")
+		.transition(time)
+		  .style("stroke-opacity", 1);
+
+		// // 7.8: EXIT old elements not present in new data.
+		alignment.exit()
+		  .remove();
+	}
+
+	// 8b: Bind Visualize function to SVG on click
+	d3.select("svg").on("click", visualize);
+
+
+
+// *************************************************************************************
+
+
+	// function that visualizes checked species
+	var confidence = false;
+	function visualize() {
+		var stacks = [GeoB1032,GeoB1035,GeoB1214];
+
+		var e = document.getElementById("stack");
+
+		if (document.getElementById("confidence").checked) {
+			update(['median','upper','lower'],stacks[e.selectedIndex]);
+		} else {
+			update(['age'],stacks[e.selectedIndex]);
+		}
+	}
+
+	// function returns array of x,y values
+	function extract(data,xVal,yVal){
+		var points = [];
+		for (var i = 0; i < data.length; i++) {
+			if (yVal != "age") 	points.push({x:data[i][xVal],y:data[i][yVal]});
+			else 				points.push({x:data[i][xVal],y:(data[i][xVal] - data[i]["median"])})
+		};
+		return points;
+	}
+
+	// function that returns random trait of iris dataset
+	function get_trait() {
+		var e = document.getElementById("y-value");
+		var value = e.options[e.selectedIndex].value;
+		return value;
+	}
+
+</script>

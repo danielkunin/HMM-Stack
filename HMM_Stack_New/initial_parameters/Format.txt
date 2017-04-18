@@ -1,0 +1,8 @@
+shift
+average rate
+alpha
+beta
+phi
+psi
+eta
+epsilon
