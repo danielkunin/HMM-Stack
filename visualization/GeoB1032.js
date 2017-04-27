@@ -3,7 +3,7 @@ var GeoB1032 =
   {
     "depth": 0.13,
     "age": 1.42,
-    "delo18": 2.94,
+    "delO18": 2.94,
     "upper": 1,
     "median": 1,
     "lower": 1
@@ -11,7 +11,7 @@ var GeoB1032 =
   {
     "depth": 0.16,
     "age": 4.15,
-    "delo18": 3.16,
+    "delO18": 3.16,
     "upper": 2,
     "median": 2,
     "lower": 2
@@ -19,7 +19,7 @@ var GeoB1032 =
   {
     "depth": 0.18,
     "age": 5.97,
-    "delo18": 3.14,
+    "delO18": 3.14,
     "upper": 5,
     "median": 5,
     "lower": 5
@@ -27,7 +27,7 @@ var GeoB1032 =
   {
     "depth": 0.19,
     "age": 6.88,
-    "delo18": 3.24,
+    "delO18": 3.24,
     "upper": 6,
     "median": 6,
     "lower": 6
@@ -35,7 +35,7 @@ var GeoB1032 =
   {
     "depth": 0.23,
     "age": 10.5,
-    "delo18": 4.01,
+    "delO18": 4.01,
     "upper": 12,
     "median": 12,
     "lower": 12
@@ -43,7 +43,7 @@ var GeoB1032 =
   {
     "depth": 0.28,
     "age": 15.1,
-    "delo18": 4.25,
+    "delO18": 4.25,
     "upper": 14,
     "median": 14,
     "lower": 14
@@ -51,7 +51,7 @@ var GeoB1032 =
   {
     "depth": 0.33,
     "age": 20.2,
-    "delo18": 4.78,
+    "delO18": 4.78,
     "upper": 24,
     "median": 26,
     "lower": 27
@@ -59,7 +59,7 @@ var GeoB1032 =
   {
     "depth": 0.38,
     "age": 25.7,
-    "delo18": 4.75,
+    "delO18": 4.75,
     "upper": 30,
     "median": 32,
     "lower": 32
@@ -67,7 +67,7 @@ var GeoB1032 =
   {
     "depth": 0.43,
     "age": 31.1,
-    "delo18": 4.38,
+    "delO18": 4.38,
     "upper": 38,
     "median": 38,
     "lower": 38
@@ -75,7 +75,7 @@ var GeoB1032 =
   {
     "depth": 0.48,
     "age": 36.1,
-    "delo18": 4.3,
+    "delO18": 4.3,
     "upper": 45,
     "median": 45,
     "lower": 46
@@ -83,7 +83,7 @@ var GeoB1032 =
   {
     "depth": 0.53,
     "age": 41,
-    "delo18": 4.33,
+    "delO18": 4.33,
     "upper": 47,
     "median": 47,
     "lower": 50
@@ -91,7 +91,7 @@ var GeoB1032 =
   {
     "depth": 0.58,
     "age": 45.8,
-    "delo18": 4.16,
+    "delO18": 4.16,
     "upper": 51,
     "median": 51,
     "lower": 54
@@ -99,7 +99,7 @@ var GeoB1032 =
   {
     "depth": 0.63,
     "age": 50.5,
-    "delo18": 4.01,
+    "delO18": 4.01,
     "upper": 58,
     "median": 58,
     "lower": 58
@@ -107,7 +107,7 @@ var GeoB1032 =
   {
     "depth": 0.68,
     "age": 55,
-    "delo18": 4.12,
+    "delO18": 4.12,
     "upper": 64,
     "median": 64,
     "lower": 64
@@ -115,7 +115,7 @@ var GeoB1032 =
   {
     "depth": 0.73,
     "age": 59.6,
-    "delo18": 4.15,
+    "delO18": 4.15,
     "upper": 68,
     "median": 68,
     "lower": 68
@@ -123,7 +123,7 @@ var GeoB1032 =
   {
     "depth": 0.78,
     "age": 64.1,
-    "delo18": 4.14,
+    "delO18": 4.14,
     "upper": 71,
     "median": 71,
     "lower": 71
@@ -131,7 +131,7 @@ var GeoB1032 =
   {
     "depth": 0.83,
     "age": 68.7,
-    "delo18": 4.24,
+    "delO18": 4.24,
     "upper": 73,
     "median": 73,
     "lower": 73
@@ -139,7 +139,7 @@ var GeoB1032 =
   {
     "depth": 0.88,
     "age": 73.2,
-    "delo18": 3.93,
+    "delO18": 3.93,
     "upper": 75,
     "median": 75,
     "lower": 75
@@ -147,7 +147,7 @@ var GeoB1032 =
   {
     "depth": 0.93,
     "age": 77.4,
-    "delo18": 3.86,
+    "delO18": 3.86,
     "upper": 77,
     "median": 77,
     "lower": 79
@@ -155,7 +155,7 @@ var GeoB1032 =
   {
     "depth": 0.98,
     "age": 80.4,
-    "delo18": 3.68,
+    "delO18": 3.68,
     "upper": 79,
     "median": 79,
     "lower": 81
@@ -163,7 +163,7 @@ var GeoB1032 =
   {
     "depth": 1.03,
     "age": 83.2,
-    "delo18": 3.69,
+    "delO18": 3.69,
     "upper": 81,
     "median": 81,
     "lower": 83
@@ -171,7 +171,7 @@ var GeoB1032 =
   {
     "depth": 1.08,
     "age": 86,
-    "delo18": 3.68,
+    "delO18": 3.68,
     "upper": 83,
     "median": 83,
     "lower": 85
@@ -179,7 +179,7 @@ var GeoB1032 =
   {
     "depth": 1.13,
     "age": 88.7,
-    "delo18": 3.62,
+    "delO18": 3.62,
     "upper": 85,
     "median": 85,
     "lower": 90
@@ -187,7 +187,7 @@ var GeoB1032 =
   {
     "depth": 1.18,
     "age": 91.4,
-    "delo18": 3.83,
+    "delO18": 3.83,
     "upper": 88,
     "median": 88,
     "lower": 93
@@ -195,7 +195,7 @@ var GeoB1032 =
   {
     "depth": 1.23,
     "age": 94,
-    "delo18": 3.51,
+    "delO18": 3.51,
     "upper": 90,
     "median": 90,
     "lower": 95
@@ -203,7 +203,7 @@ var GeoB1032 =
   {
     "depth": 1.28,
     "age": 96.3,
-    "delo18": 3.64,
+    "delO18": 3.64,
     "upper": 94,
     "median": 94,
     "lower": 97
@@ -211,7 +211,7 @@ var GeoB1032 =
   {
     "depth": 1.33,
     "age": 98.5,
-    "delo18": 3.64,
+    "delO18": 3.64,
     "upper": 96,
     "median": 96,
     "lower": 99
@@ -219,7 +219,7 @@ var GeoB1032 =
   {
     "depth": 1.38,
     "age": 101,
-    "delo18": 3.72,
+    "delO18": 3.72,
     "upper": 98,
     "median": 98,
     "lower": 101
@@ -227,7 +227,7 @@ var GeoB1032 =
   {
     "depth": 1.43,
     "age": 103,
-    "delo18": 3.45,
+    "delO18": 3.45,
     "upper": 100,
     "median": 100,
     "lower": 103
@@ -235,7 +235,7 @@ var GeoB1032 =
   {
     "depth": 1.48,
     "age": 105,
-    "delo18": 3.43,
+    "delO18": 3.43,
     "upper": 102,
     "median": 102,
     "lower": 105
@@ -243,7 +243,7 @@ var GeoB1032 =
   {
     "depth": 1.53,
     "age": 107,
-    "delo18": 3.47,
+    "delO18": 3.47,
     "upper": 105,
     "median": 105,
     "lower": 107
@@ -251,7 +251,7 @@ var GeoB1032 =
   {
     "depth": 1.58,
     "age": 109,
-    "delo18": 3.58,
+    "delO18": 3.58,
     "upper": 110,
     "median": 110,
     "lower": 111
@@ -259,7 +259,7 @@ var GeoB1032 =
   {
     "depth": 1.63,
     "age": 112,
-    "delo18": 3.96,
+    "delO18": 3.96,
     "upper": 113,
     "median": 113,
     "lower": 114
@@ -267,7 +267,7 @@ var GeoB1032 =
   {
     "depth": 1.68,
     "age": 115,
-    "delo18": 3.64,
+    "delO18": 3.64,
     "upper": 116,
     "median": 116,
     "lower": 116
@@ -275,7 +275,7 @@ var GeoB1032 =
   {
     "depth": 1.73,
     "age": 117,
-    "delo18": 3.13,
+    "delO18": 3.13,
     "upper": 118,
     "median": 118,
     "lower": 118
@@ -283,7 +283,7 @@ var GeoB1032 =
   {
     "depth": 1.78,
     "age": 120,
-    "delo18": 3.05,
+    "delO18": 3.05,
     "upper": 120,
     "median": 121,
     "lower": 121
@@ -291,7 +291,7 @@ var GeoB1032 =
   {
     "depth": 1.83,
     "age": 122,
-    "delo18": 2.77,
+    "delO18": 2.77,
     "upper": 123,
     "median": 123,
     "lower": 123
@@ -299,7 +299,7 @@ var GeoB1032 =
   {
     "depth": 1.88,
     "age": 125,
-    "delo18": 2.72,
+    "delO18": 2.72,
     "upper": 125,
     "median": 125,
     "lower": 125
@@ -307,7 +307,7 @@ var GeoB1032 =
   {
     "depth": 1.93,
     "age": 127,
-    "delo18": 3.42,
+    "delO18": 3.42,
     "upper": 127,
     "median": 127,
     "lower": 127
@@ -315,7 +315,7 @@ var GeoB1032 =
   {
     "depth": 1.98,
     "age": 130,
-    "delo18": 3.12,
+    "delO18": 3.12,
     "upper": 130,
     "median": 130,
     "lower": 130
@@ -323,7 +323,7 @@ var GeoB1032 =
   {
     "depth": 2.03,
     "age": 134,
-    "delo18": 4.8,
+    "delO18": 4.8,
     "upper": 134,
     "median": 137,
     "lower": 143
@@ -331,7 +331,7 @@ var GeoB1032 =
   {
     "depth": 2.08,
     "age": 140,
-    "delo18": 4.78,
+    "delO18": 4.78,
     "upper": 142,
     "median": 148,
     "lower": 150
@@ -339,7 +339,7 @@ var GeoB1032 =
   {
     "depth": 2.13,
     "age": 146,
-    "delo18": 4.53,
+    "delO18": 4.53,
     "upper": 155,
     "median": 155,
     "lower": 155
@@ -347,7 +347,7 @@ var GeoB1032 =
   {
     "depth": 2.18,
     "age": 152,
-    "delo18": 4.59,
+    "delO18": 4.59,
     "upper": 159,
     "median": 162,
     "lower": 166
@@ -355,7 +355,7 @@ var GeoB1032 =
   {
     "depth": 2.23,
     "age": 158,
-    "delo18": 4.54,
+    "delO18": 4.54,
     "upper": 166,
     "median": 168,
     "lower": 172
@@ -363,7 +363,7 @@ var GeoB1032 =
   {
     "depth": 2.28,
     "age": 164,
-    "delo18": 4.57,
+    "delO18": 4.57,
     "upper": 170,
     "median": 172,
     "lower": 177
@@ -371,7 +371,7 @@ var GeoB1032 =
   {
     "depth": 2.33,
     "age": 170,
-    "delo18": 4.45,
+    "delO18": 4.45,
     "upper": 175,
     "median": 176,
     "lower": 180
@@ -379,7 +379,7 @@ var GeoB1032 =
   {
     "depth": 2.38,
     "age": 176,
-    "delo18": 4.44,
+    "delO18": 4.44,
     "upper": 180,
     "median": 180,
     "lower": 184
@@ -387,7 +387,7 @@ var GeoB1032 =
   {
     "depth": 2.43,
     "age": 182,
-    "delo18": 4.24,
+    "delO18": 4.24,
     "upper": 184,
     "median": 184,
     "lower": 187
@@ -395,7 +395,7 @@ var GeoB1032 =
   {
     "depth": 2.48,
     "age": 188,
-    "delo18": 4.14,
+    "delO18": 4.14,
     "upper": 191,
     "median": 191,
     "lower": 191
@@ -403,7 +403,7 @@ var GeoB1032 =
   {
     "depth": 2.53,
     "age": 193,
-    "delo18": 4.04,
+    "delO18": 4.04,
     "upper": 193,
     "median": 194,
     "lower": 195
@@ -411,7 +411,7 @@ var GeoB1032 =
   {
     "depth": 2.58,
     "age": 198,
-    "delo18": 3.67,
+    "delO18": 3.67,
     "upper": 197,
     "median": 197,
     "lower": 197
@@ -419,7 +419,7 @@ var GeoB1032 =
   {
     "depth": 2.63,
     "age": 202,
-    "delo18": 3.72,
+    "delO18": 3.72,
     "upper": 199,
     "median": 200,
     "lower": 200
@@ -427,7 +427,7 @@ var GeoB1032 =
   {
     "depth": 2.68,
     "age": 205,
-    "delo18": 3.32,
+    "delO18": 3.32,
     "upper": 203,
     "median": 203,
     "lower": 203
@@ -435,7 +435,7 @@ var GeoB1032 =
   {
     "depth": 2.73,
     "age": 208,
-    "delo18": 3.16,
+    "delO18": 3.16,
     "upper": 207,
     "median": 207,
     "lower": 207
@@ -443,7 +443,7 @@ var GeoB1032 =
   {
     "depth": 2.78,
     "age": 211,
-    "delo18": 3.13,
+    "delO18": 3.13,
     "upper": 210,
     "median": 210,
     "lower": 210
@@ -451,7 +451,7 @@ var GeoB1032 =
   {
     "depth": 2.83,
     "age": 214,
-    "delo18": 3.47,
+    "delO18": 3.47,
     "upper": 214,
     "median": 214,
     "lower": 214
@@ -459,7 +459,7 @@ var GeoB1032 =
   {
     "depth": 2.88,
     "age": 217,
-    "delo18": 3.29,
+    "delO18": 3.29,
     "upper": 217,
     "median": 217,
     "lower": 217
@@ -467,7 +467,7 @@ var GeoB1032 =
   {
     "depth": 2.93,
     "age": 220,
-    "delo18": 3.81,
+    "delO18": 3.81,
     "upper": 220,
     "median": 220,
     "lower": 220
@@ -475,7 +475,7 @@ var GeoB1032 =
   {
     "depth": 2.98,
     "age": 224,
-    "delo18": 4.08,
+    "delO18": 4.08,
     "upper": 224,
     "median": 225,
     "lower": 225
@@ -483,7 +483,7 @@ var GeoB1032 =
   {
     "depth": 3.03,
     "age": 227,
-    "delo18": 3.98,
+    "delO18": 3.98,
     "upper": 228,
     "median": 229,
     "lower": 229
@@ -491,7 +491,7 @@ var GeoB1032 =
   {
     "depth": 3.08,
     "age": 231,
-    "delo18": 4.22,
+    "delO18": 4.22,
     "upper": 232,
     "median": 232,
     "lower": 232
@@ -499,7 +499,7 @@ var GeoB1032 =
   {
     "depth": 3.13,
     "age": 235,
-    "delo18": 3.8,
+    "delO18": 3.8,
     "upper": 236,
     "median": 236,
     "lower": 236
@@ -507,7 +507,7 @@ var GeoB1032 =
   {
     "depth": 3.18,
     "age": 238,
-    "delo18": 3.2,
+    "delO18": 3.2,
     "upper": 240,
     "median": 240,
     "lower": 240
@@ -515,7 +515,7 @@ var GeoB1032 =
   {
     "depth": 3.23,
     "age": 242,
-    "delo18": 3.71,
+    "delO18": 3.71,
     "upper": 242,
     "median": 242,
     "lower": 243
@@ -523,7 +523,7 @@ var GeoB1032 =
   {
     "depth": 3.28,
     "age": 246,
-    "delo18": 4.37,
+    "delO18": 4.37,
     "upper": 245,
     "median": 246,
     "lower": 249
@@ -531,7 +531,7 @@ var GeoB1032 =
   {
     "depth": 3.33,
     "age": 251,
-    "delo18": 4.16,
+    "delO18": 4.16,
     "upper": 248,
     "median": 248,
     "lower": 256
@@ -539,7 +539,7 @@ var GeoB1032 =
   {
     "depth": 3.38,
     "age": 255,
-    "delo18": 4.28,
+    "delO18": 4.28,
     "upper": 255,
     "median": 255,
     "lower": 260
@@ -547,7 +547,7 @@ var GeoB1032 =
   {
     "depth": 3.43,
     "age": 260,
-    "delo18": 4.5,
+    "delO18": 4.5,
     "upper": 262,
     "median": 262,
     "lower": 264
@@ -555,7 +555,7 @@ var GeoB1032 =
   {
     "depth": 3.48,
     "age": 264,
-    "delo18": 4.15,
+    "delO18": 4.15,
     "upper": 268,
     "median": 268,
     "lower": 268
@@ -563,7 +563,7 @@ var GeoB1032 =
   {
     "depth": 3.53,
     "age": 269,
-    "delo18": 4.4,
+    "delO18": 4.4,
     "upper": 272,
     "median": 274,
     "lower": 275
@@ -571,7 +571,7 @@ var GeoB1032 =
   {
     "depth": 3.58,
     "age": 273,
-    "delo18": 4.2,
+    "delO18": 4.2,
     "upper": 276,
     "median": 279,
     "lower": 280
@@ -579,7 +579,7 @@ var GeoB1032 =
   {
     "depth": 3.63,
     "age": 277,
-    "delo18": 3.93,
+    "delO18": 3.93,
     "upper": 279,
     "median": 282,
     "lower": 282
@@ -587,7 +587,7 @@ var GeoB1032 =
   {
     "depth": 3.68,
     "age": 279,
-    "delo18": 3.97,
+    "delO18": 3.97,
     "upper": 282,
     "median": 284,
     "lower": 284
@@ -595,7 +595,7 @@ var GeoB1032 =
   {
     "depth": 3.73,
     "age": 282,
-    "delo18": 3.69,
+    "delO18": 3.69,
     "upper": 284,
     "median": 286,
     "lower": 286
@@ -603,7 +603,7 @@ var GeoB1032 =
   {
     "depth": 3.78,
     "age": 285,
-    "delo18": 3.52,
+    "delO18": 3.52,
     "upper": 286,
     "median": 288,
     "lower": 288
@@ -611,7 +611,7 @@ var GeoB1032 =
   {
     "depth": 3.83,
     "age": 288,
-    "delo18": 3.64,
+    "delO18": 3.64,
     "upper": 288,
     "median": 300,
     "lower": 300
@@ -619,7 +619,7 @@ var GeoB1032 =
   {
     "depth": 3.88,
     "age": 291,
-    "delo18": 3.8,
+    "delO18": 3.8,
     "upper": 290,
     "median": 302,
     "lower": 303
@@ -627,7 +627,7 @@ var GeoB1032 =
   {
     "depth": 3.93,
     "age": 295,
-    "delo18": 4.17,
+    "delO18": 4.17,
     "upper": 293,
     "median": 305,
     "lower": 306
@@ -635,7 +635,7 @@ var GeoB1032 =
   {
     "depth": 3.98,
     "age": 299,
-    "delo18": 3.88,
+    "delO18": 3.88,
     "upper": 300,
     "median": 308,
     "lower": 308
@@ -643,7 +643,7 @@ var GeoB1032 =
   {
     "depth": 4.03,
     "age": 302,
-    "delo18": 3.98,
+    "delO18": 3.98,
     "upper": 303,
     "median": 310,
     "lower": 310
@@ -651,7 +651,7 @@ var GeoB1032 =
   {
     "depth": 4.08,
     "age": 306,
-    "delo18": 3.82,
+    "delO18": 3.82,
     "upper": 308,
     "median": 312,
     "lower": 312
@@ -659,7 +659,7 @@ var GeoB1032 =
   {
     "depth": 4.13,
     "age": 309,
-    "delo18": 3.68,
+    "delO18": 3.68,
     "upper": 311,
     "median": 314,
     "lower": 314
@@ -667,7 +667,7 @@ var GeoB1032 =
   {
     "depth": 4.18,
     "age": 312,
-    "delo18": 3.57,
+    "delO18": 3.57,
     "upper": 313,
     "median": 316,
     "lower": 316
@@ -675,7 +675,7 @@ var GeoB1032 =
   {
     "depth": 4.23,
     "age": 315,
-    "delo18": 3.39,
+    "delO18": 3.39,
     "upper": 315,
     "median": 319,
     "lower": 319
@@ -683,7 +683,7 @@ var GeoB1032 =
   {
     "depth": 4.28,
     "age": 317,
-    "delo18": 3.7,
+    "delO18": 3.7,
     "upper": 319,
     "median": 321,
     "lower": 321
@@ -691,7 +691,7 @@ var GeoB1032 =
   {
     "depth": 4.33,
     "age": 320,
-    "delo18": 3.73,
+    "delO18": 3.73,
     "upper": 321,
     "median": 323,
     "lower": 323
@@ -699,7 +699,7 @@ var GeoB1032 =
   {
     "depth": 4.38,
     "age": 323,
-    "delo18": 3.39,
+    "delO18": 3.39,
     "upper": 325,
     "median": 325,
     "lower": 326
@@ -707,7 +707,7 @@ var GeoB1032 =
   {
     "depth": 4.43,
     "age": 325,
-    "delo18": 3.11,
+    "delO18": 3.11,
     "upper": 328,
     "median": 329,
     "lower": 329
@@ -715,7 +715,7 @@ var GeoB1032 =
   {
     "depth": 4.48,
     "age": 327,
-    "delo18": 3.11,
+    "delO18": 3.11,
     "upper": 331,
     "median": 332,
     "lower": 333
@@ -723,7 +723,7 @@ var GeoB1032 =
   {
     "depth": 4.53,
     "age": 330,
-    "delo18": 4.06,
+    "delO18": 4.06,
     "upper": 335,
     "median": 336,
     "lower": 336
@@ -731,7 +731,7 @@ var GeoB1032 =
   {
     "depth": 4.58,
     "age": 332,
-    "delo18": 4.2,
+    "delO18": 4.2,
     "upper": 338,
     "median": 338,
     "lower": 338
@@ -739,7 +739,7 @@ var GeoB1032 =
   {
     "depth": 4.63,
     "age": 334,
-    "delo18": 3.27,
+    "delO18": 3.27,
     "upper": 348,
     "median": 348,
     "lower": 348
@@ -747,7 +747,7 @@ var GeoB1032 =
   {
     "depth": 4.68,
     "age": 337,
-    "delo18": 3.89,
+    "delO18": 3.89,
     "upper": 352,
     "median": 352,
     "lower": 352
@@ -755,7 +755,7 @@ var GeoB1032 =
   {
     "depth": 4.73,
     "age": 339,
-    "delo18": 4.41,
+    "delO18": 4.41,
     "upper": 354,
     "median": 356,
     "lower": 356
@@ -763,7 +763,7 @@ var GeoB1032 =
   {
     "depth": 4.78,
     "age": 342,
-    "delo18": 4.61,
+    "delO18": 4.61,
     "upper": 357,
     "median": 359,
     "lower": 360
@@ -771,7 +771,7 @@ var GeoB1032 =
   {
     "depth": 4.83,
     "age": 347,
-    "delo18": 4.56,
+    "delO18": 4.56,
     "upper": 360,
     "median": 362,
     "lower": 363
@@ -779,7 +779,7 @@ var GeoB1032 =
   {
     "depth": 4.88,
     "age": 351,
-    "delo18": 4.49,
+    "delO18": 4.49,
     "upper": 363,
     "median": 365,
     "lower": 367
@@ -787,7 +787,7 @@ var GeoB1032 =
   {
     "depth": 4.93,
     "age": 356,
-    "delo18": 4.37,
+    "delO18": 4.37,
     "upper": 366,
     "median": 368,
     "lower": 371
@@ -795,7 +795,7 @@ var GeoB1032 =
   {
     "depth": 4.98,
     "age": 361,
-    "delo18": 4.33,
+    "delO18": 4.33,
     "upper": 370,
     "median": 371,
     "lower": 374
@@ -803,7 +803,7 @@ var GeoB1032 =
   {
     "depth": 5.03,
     "age": 365,
-    "delo18": 4.43,
+    "delO18": 4.43,
     "upper": 372,
     "median": 374,
     "lower": 376
@@ -811,7 +811,7 @@ var GeoB1032 =
   {
     "depth": 5.08,
     "age": 369,
-    "delo18": 4.12,
+    "delO18": 4.12,
     "upper": 375,
     "median": 379,
     "lower": 380
@@ -819,7 +819,7 @@ var GeoB1032 =
   {
     "depth": 5.13,
     "age": 373,
-    "delo18": 4.32,
+    "delO18": 4.32,
     "upper": 377,
     "median": 382,
     "lower": 384
@@ -827,7 +827,7 @@ var GeoB1032 =
   {
     "depth": 5.18,
     "age": 376,
-    "delo18": 4.36,
+    "delO18": 4.36,
     "upper": 380,
     "median": 386,
     "lower": 386
@@ -835,7 +835,7 @@ var GeoB1032 =
   {
     "depth": 5.23,
     "age": 380,
-    "delo18": 4.29,
+    "delO18": 4.29,
     "upper": 384,
     "median": 390,
     "lower": 391
