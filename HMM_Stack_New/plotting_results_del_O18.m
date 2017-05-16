@@ -42,7 +42,7 @@ axis([-inf inf -5 5]);
 set(fig1,'Position',[10 10 550 800]);
 
 
-fig2 = figure(2);
+fig2 = figure(3);
 suptitle('MD03-2698:dO18');
 hold on;
 subplot(4,1,[1,2,3]);
@@ -68,7 +68,7 @@ axis([-inf inf -5 5]);
 set(fig2,'Position',[10 10 550 800]);
 
 
-fig3 = figure(3);
+fig3 = figure(5);
 suptitle('MD99-2334:dO18');
 hold on;
 subplot(4,1,[1,2,3]);
@@ -93,9 +93,9 @@ plot(Confidence_Band{3}(2,:),Confidence_Band{3}(2,:)-Confidence_Band{3}(2,:),'r'
 axis([-inf inf -5 5]);
 set(fig3,'Position',[10 10 550 800]);
 
-%{
-fig4 = figure(4);
-suptitle('MD95-2042:del_O18');
+
+fig4 = figure(7);
+suptitle('MD95-2042:dO18');
 hold on;
 subplot(4,1,[1,2,3]);
 hold on;
@@ -103,9 +103,9 @@ ylabel('depth (m)');
 for k = 1:size(old_data(4).radiocarbon,1)
     plot(linspace(old_data(4).radiocarbon(k,2),old_data(4).radiocarbon(k,3),1000),old_data(4).radiocarbon(k,1)*ones(1,1000)/100,'c','LineWidth',2);
 end
-p2 = plot(Confidence_Band{4}(3,:),data(4).intervals(:,1)/100','b');
-p3 = plot(Confidence_Band{4}(1,:),data(4).intervals(:,1)/100','g');
-p1 = plot(Confidence_Band{4}(2,:),data(4).intervals(:,1)/100','r');
+p2 = plot(Confidence_Band{4}(3,:),old_data(4).del_O18(:,1)/100','b');
+p3 = plot(Confidence_Band{4}(1,:),old_data(4).del_O18(:,1)/100','g');
+p1 = plot(Confidence_Band{4}(2,:),old_data(4).del_O18(:,1)/100','r');
 legend([p1 p2 p3],'median','upper limit','lower limit','Location','southeast');
 axis([-inf inf 0 30]);
 set(gca,'xtick',[]);
@@ -118,7 +118,7 @@ plot(Confidence_Band{4}(2,:),Confidence_Band{4}(1,:)-Confidence_Band{4}(2,:),'g'
 plot(Confidence_Band{4}(2,:),Confidence_Band{4}(2,:)-Confidence_Band{4}(2,:),'r');
 axis([-inf inf -5 5]);
 set(fig4,'Position',[10 10 550 800]);
-%}
+
 %{
 fig5 = figure(5);
 suptitle('MD95-2040:complete');
@@ -171,3 +171,10 @@ plot(Confidence_Band{6}(2,:),Confidence_Band{6}(2,:)-Confidence_Band{6}(2,:),'r'
 axis([-inf inf -5 5]);
 set(fig6,'Position',[10 10 550 800]);
 %}
+
+
+h(1) = figure(1);
+h(2) = figure(3);
+h(3) = figure(5);
+h(4) = figure(7);
+savefig(h,'ages_dO18_only.fig');

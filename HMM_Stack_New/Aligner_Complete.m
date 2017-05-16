@@ -42,7 +42,7 @@ rhos = rho_constructor('../sedrate_dist_evenbins.txt');
 %% Run the profile-HMM algorithm
 
 % Criteria of convergence
-iterTol = 0.1;
+iterTol = 0;
 iterMax = 10; 
 
 % Initial Parameter Values from sedemenation rate
@@ -85,7 +85,7 @@ end
 
 % Obtain confidence bands:
 alpha = 95;
-Confidence_Band = Median_Finder(samples,alpha);
+Confidence_Band = Median_Finder_complete(samples,alpha,stack_param,data);
 
 
 cd ..

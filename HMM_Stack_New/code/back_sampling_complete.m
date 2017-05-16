@@ -51,7 +51,7 @@ rho_dist = rhos{2};
 grid1 = [0.9220,1.0850];
 grid2 = rhos{3};
 
-index_diag = (depth_diff < 1);
+index_diag = (depth_diff < 0.4);
 dummy = 1:T;
 
 

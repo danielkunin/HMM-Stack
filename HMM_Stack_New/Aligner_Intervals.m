@@ -82,7 +82,7 @@ end
 
 % Obtain confidence bands:
 alpha = 95;
-Confidence_Band = Median_Finder(samples,alpha);
+Confidence_Band = Median_Finder(samples,alpha,stack_param,data);
 
 
 cd ..

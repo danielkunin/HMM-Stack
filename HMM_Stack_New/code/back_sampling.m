@@ -1,4 +1,4 @@
-function [samples,sites] = back_sampling(fMatrix,sampleSize,data,stack_param,core_param,index,rhos)
+function [samples,sites] = back_sampling(fMatrix,sampleSize,data,stack_param,core_param,index,rhos,max_T)
 %% This function generates sample alignments by backward sampling.
 
 % L = length of data in the core
@@ -29,7 +29,7 @@ function [samples,sites] = back_sampling(fMatrix,sampleSize,data,stack_param,cor
 depth = data(index).del_O18(:,1);
 
 % extract stack parameters:
-age_stack = stack_param.age;
+age_stack = stack_param.age(1:max_T);
 
 % extract core parameters:
 R = core_param(index).R;
@@ -37,7 +37,8 @@ epsilon = core_param(index).epsilon;
 eta = core_param(index).eta;
 
 % length constants:
-T = length(age_stack);
+% T = length(age_stack);
+T = max_T;
 L = length(depth);
 samples_matrix = zeros(L,sampleSize);
 
@@ -50,7 +51,7 @@ rho_dist = rhos{2};
 grid1 = [0.9220,1.0850];
 grid2 = rhos{3};
 
-index_diag = (depth_diff < 1);
+index_diag = (depth_diff < 0.4);
 dummy = 1:T;
 
 

@@ -32,7 +32,6 @@ stack_param = initializing_stack_param(path);
 [core_param] = initializing_core_param(files{1},stack_param,data);
 % Remove radiocarbon data for using del_O18 only:
 age_stack = stack_param.age;
-%{
 for p = 1:length(files{1})
     R = core_param(p).R;
     data(p).radiocarbon(:,2) = max(0,data(p).radiocarbon(1,2) - 4*R*(data(p).radiocarbon(1,1)-data(p).del_O18(1,1)));
@@ -40,13 +39,6 @@ for p = 1:length(files{1})
     % data(p).radiocarbon(:,2) = 0;
     % data(p).radiocarbon(:,3) = age_stack(end);
 end
-%}
-data(1).radiocarbon(:,2) = 0;
-data(1).radiocarbon(:,3) = 32;
-data(2).radiocarbon(:,2) = 0;
-data(2).radiocarbon(:,3) = 60;
-data(3).radiocarbon(:,2) = 0;
-data(3).radiocarbon(:,3) = 36;
 
 data = data_merge(data);
 
@@ -57,7 +49,7 @@ rhos = rho_constructor('../sedrate_dist_evenbins.txt');
 %% Run the profile-HMM algorithm
 
 % Criteria of convergence
-iterTol = 0.1;
+iterTol = 0;
 iterMax = 10; 
 
 % Initial Parameter Values from sedemenation rate
@@ -75,12 +67,12 @@ while ~done
     
     parfor index = 1:length(files{1})
         % Forward Algorithm
-        [fMatrix] = forward_algorithm(data,stack_param,core_param,index,rhos);
+        [fMatrix,max_T] = forward_algorithm(data,stack_param,core_param,index,rhos);
         tt = ['Forward algorithim for the core ',data(index).name,' in iteration ',num2str(iter),' is done.'];
         disp(tt);
         
         % Backward Sampling Algorithm
-        [samples(index,:),sites(index,:)] = back_sampling(fMatrix,sampleSize,data,stack_param,core_param,index,rhos);
+        [samples(index,:),sites(index,:)] = back_sampling(fMatrix,sampleSize,data,stack_param,core_param,index,rhos,max_T);
         tt = ['Backward algorithim for the core ',data(index).name,' in iteration ',num2str(iter),' is done.'];
         disp(tt);
     end
@@ -100,7 +92,7 @@ end
 
 % Obtain confidence bands:
 alpha = 95;
-Confidence_Band = Median_Finder(samples,alpha);
+Confidence_Band = Median_Finder(samples,alpha,stack_param,data);
 
 
 cd ..

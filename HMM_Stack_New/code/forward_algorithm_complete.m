@@ -65,7 +65,7 @@ rho_dist = log(rhos{2});
 grid1 = [0.9220,1.0850];
 grid2 = rhos{3};
 
-index_diag = (depth_diff < 1);
+index_diag = (depth_diff < 0.4);
 dummy = 1:max_T;
 
 
@@ -98,9 +98,9 @@ for n = 3:L
             possible_u = dummy(dummy < s & isinf(fMatrix(:,s,n-1)') == 0);
             term = zeros(1,length(possible_u)+1);
             for ll = 1:length(possible_u)
-                term(ll) = ETable(n-1,s) + ETable(n,s) + log(1-exp(eta)) + fMatrix(possible_u(ll),s,n-1);
+                term(ll) = ETable(n,s) + log(1-exp(eta)) + fMatrix(possible_u(ll),s,n-1);
             end
-            term(end) = ETable(n-1,s) + ETable(n,s) + epsilon + fMatrix(s,s,n-1);
+            term(end) = ETable(n,s) + epsilon + fMatrix(s,s,n-1);
             amax = max(term);
             if isinf(amax) == 0
                 fMatrix(s,s,n) = amax + log(sum(exp(term-amax)));
@@ -114,9 +114,9 @@ for n = 3:L
             possible_u = dummy(dummy < t & (age_stack(t)-age_stack)/depth_diff(n-2) >= 0.25 & (age_stack(t)-age_stack)/depth_diff(n-2) <= 4 & isinf(fMatrix(:,t,n-1)') == 0);
             term = zeros(1,length(possible_u)+1);
             for ll = 1:length(possible_u)
-                term(ll) = ETable(n-1,t) + ETable(n,s) + eta + rho_table(1+sum((age_stack(t)-age_stack(possible_u(ll)))/depth_diff(n-2)>grid1),1+sum((age_stack(s)-age_stack(t))/depth_diff(n-1)>grid2)) + fMatrix(possible_u(ll),t,n-1);
+                term(ll) = ETable(n,s) + eta + rho_table(1+sum((age_stack(t)-age_stack(possible_u(ll)))/depth_diff(n-2)>grid1),1+sum((age_stack(s)-age_stack(t))/depth_diff(n-1)>grid2)) + fMatrix(possible_u(ll),t,n-1);
             end
-            term(end) = ETable(n-1,t) + ETable(n,s) + log(1-exp(epsilon)) + rho_dist(1+sum((age_stack(s)-age_stack(t))/depth_diff(n-1)>grid2)) + fMatrix(t,t,n-1);
+            term(end) = ETable(n,s) + log(1-exp(epsilon)) + rho_dist(1+sum((age_stack(s)-age_stack(t))/depth_diff(n-1)>grid2)) + fMatrix(t,t,n-1);
             amax = max(term);
             if isinf(amax) == 0
                 fMatrix(t,s,n) = amax + log(sum(exp(term-amax)));
