@@ -306,10 +306,13 @@ d3.select("#visualize").on("click", function() {
 });
 
 // Gets Stack from selected radio buttons
+// Replace this function with code that runs hmm-stack with user data and receives results
+// To test server-client interaction add the following line: stack = run_hmm_stack(stacks[index], 0);
 function getStack() {
 	var stacks = [SU81_18,MD03_2698,MD99_2334,MD95_2042,GeoB1032,GeoB1035,GeoB1214],
-		index = document.getElementById("stack").selectedIndex;
-	return run_hmm_stack(stacks[index], 0);
+		index = document.getElementById("stack").selectedIndex,
+		stack = stacks[index];
+	return stack;
 }
 
 
