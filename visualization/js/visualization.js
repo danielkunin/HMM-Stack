@@ -1,3 +1,4 @@
+//client.js : JavaScript code to that creates visualization.
 
 // sets up line chart with scale, axes, and labels
 function setup(margin, width, height) {
@@ -224,12 +225,10 @@ function updateInterval (data, plot) {
 
 
 // function that visualizes checked species
-function visualize() {
+function visualize(stack) {
 	// variables and data
-	var stacks = [SU81_18,MD03_2698,MD99_2334,MD95_2042,GeoB1032,GeoB1035,GeoB1214],
-		index = document.getElementById("stack").selectedIndex,
-		curr = stacks[index],
-		ci = document.getElementById("confidence").checked;
+	var curr = stack,
+		ci = document.getElementById("confidence").checked,
 		dp = document.getElementById("point").checked;
 
 	// plot value plot
@@ -301,7 +300,17 @@ function get_trait() {
 }
 
 // 8b: Bind Visualize function to button on click
-d3.select("#visualize").on("click", visualize);
+d3.select("#visualize").on("click", function() {
+	var stack = getStack();
+	visualize(stack);
+});
+
+// Gets Stack from selected radio buttons
+function getStack() {
+	var stacks = [SU81_18,MD03_2698,MD99_2334,MD95_2042,GeoB1032,GeoB1035,GeoB1214],
+		index = document.getElementById("stack").selectedIndex;
+	return run_hmm_stack(stacks[index], 0);
+}
 
 
 // 1: Create Plots

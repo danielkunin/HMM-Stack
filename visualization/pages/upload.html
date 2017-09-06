@@ -98,11 +98,13 @@
                         <option>GeoB1035</option>
                         <option>GeoB1214</option>
                     </select>
+                    <br>
                     Attribute:
                     <select id="y-value">
                         <option value="depth">depth</option>
                         <option value="delO18">delta-O-18</option>
                     </select>
+                    <br>
                     Constraints:
                     <input type="checkbox" id="confidence">
                     <br>
@@ -143,6 +145,8 @@
 
                     <div class="caption-full">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+
+                        <p id="error"></p>
                     </div>
 
                 </div>
@@ -200,6 +204,9 @@
 
     <!-- Visualization js -->
     <script src="../js/visualization.js"></script>
+
+    <!-- Client js -->
+    <script src="../js/client.js"></script>
 
     <!-- Table js -->
     <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
